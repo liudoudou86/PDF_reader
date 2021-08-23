@@ -1,5 +1,5 @@
 {
-  "name": "PDF阅读器",
+  "name": "pdf-reader",
   "version": "1.0.0",
   "description": "A minimal Electron application",
   "main": "main.js",
