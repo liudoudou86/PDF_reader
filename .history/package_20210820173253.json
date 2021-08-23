@@ -1,0 +1,57 @@
+{
+  "name": "electron-quick-start",
+  "version": "1.0.0",
+  "description": "A minimal Electron application",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder --win --x64"
+  },
+  "repository": "https://github.com/electron/electron-quick-start",
+  "keywords": [
+    "Electron",
+    "quick",
+    "start",
+    "tutorial",
+    "demo"
+  ],
+  "author": "GitHub",
+  "license": "CC0-1.0",
+  "build": {
+    "productName":"PDF阅读器",
+    "appId": "dd.PDF_reader",
+    "copyright":"",
+    "directories": { 
+      "output": "build"
+    }, 
+    "nsis": {
+      "oneClick": false,
+      "allowElevation": true,
+      "allowToChangeInstallationDirectory": true,
+      "installerIcon": "./image/256x256.ico",
+      "uninstallerIcon": "./image/256x256.ico",
+      "installerHeaderIcon": "./image/256x256.ico",
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": false,
+      "shortcutName": "PDF阅读器"
+    },
+    "win": {
+      "icon": "./image/256x256.ico",
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "ia32"
+          ]
+        }
+      ]
+    }
+  },
+  "devDependencies": {
+    "electron": "^13.2.1",
+    "electron-packager": "^15.3.0"
+  },
+  "dependencies": {
+    "electron-pdf-window": "^1.0.12"
+  }
+}
