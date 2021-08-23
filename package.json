@@ -18,22 +18,22 @@
   "author": "GitHub",
   "license": "CC0-1.0",
   "build": {
-    "productName":"PDF阅读器", // 项目名
-    "appId": "dd.PDF_reader", // 包名
-    "copyright":"", // 版权信息
+    "productName":"PDF阅读器",
+    "appId": "dd.PDF_reader",
+    "copyright":"",
     "directories": { 
-      "output": "build" // 打包输出的文件夹名
+      "output": "build"
     }, 
     "nsis": {
-      "oneClick": false, // 是否一键安装
-      "allowElevation": true, // 允许提升
-      "allowToChangeInstallationDirectory": true, // 允许修改安装目录
-      "installerIcon": "./image/256x256.ico", // 安装图标，至少256*256
-      "uninstallerIcon": "./image/256x256.ico", // 卸载图标，至少256*256
-      "installerHeaderIcon": "./image/256x256.ico", // 创建图标，至少256*256
-      "createDesktopShortcut": true, // 创建桌面图标
-      "createStartMenuShortcut": false, // 创建开始菜单图标
-      "shortcutName": "PDF阅读器" // 图标名称
+      "oneClick": false,
+      "allowElevation": true,
+      "allowToChangeInstallationDirectory": true,
+      "installerIcon": "./image/256x256.ico",
+      "uninstallerIcon": "./image/256x256.ico",
+      "installerHeaderIcon": "./image/256x256.ico",
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": false,
+      "shortcutName": "PDF阅读器"
     },
     "win": {
       "icon": "./image/256x256.ico",
