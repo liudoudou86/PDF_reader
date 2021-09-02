@@ -20,8 +20,8 @@ app.whenReady().then(() => {
   tray = new Tray(path.join(__dirname, './image/e6.ico')) // 此写法为全局变量方便打包后使用
   const contextMenu = Menu.buildFromTemplate([
     {
-      label: '隐藏', role: 'hide', click: () => {
-        mainWindow.hide()
+      label: '显示', role: 'show', click: () => {
+        mainWindow.show()
       }
     },
     {
@@ -58,6 +58,12 @@ app.whenReady().then(() => {
     }).catch(err => {
         console.log(err)
     })
+  })
+
+  globalShortcut.register('Esc', () => {
+
+    mainWindow.hide()
+
   })
 
   app.on('activate', function () {

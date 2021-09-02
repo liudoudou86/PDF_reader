@@ -18,12 +18,12 @@
   "author": "GitHub",
   "license": "CC0-1.0",
   "build": {
-    "productName":"PDF阅读器",
+    "productName": "PDF阅读器",
     "appId": "dd.PDF_reader",
-    "copyright":"",
-    "directories": { 
+    "copyright": "",
+    "directories": {
       "output": "build"
-    }, 
+    },
     "nsis": {
       "oneClick": false,
       "allowElevation": true,
