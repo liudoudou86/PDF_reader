@@ -5,6 +5,7 @@ const PDFWindow = require('electron-pdf-window')
 let tray = null
 
 app.whenReady().then(() => {
+
   /* 创建项目窗口 */
   const mainWindow = new BrowserWindow({
     frame: false,
@@ -36,7 +37,7 @@ app.whenReady().then(() => {
   })
 
   /* 创建快捷键 */
-  globalShortcut.register('CommandOrControl+Space', () => {
+  globalShortcut.register('Control+Space', () => {
 
     mainWindow.show()
     mainWindow.maximize()
@@ -63,6 +64,19 @@ app.whenReady().then(() => {
   globalShortcut.register('Esc', () => {
 
     mainWindow.hide()
+
+  })
+
+  globalShortcut.register('Control+z', () => {
+
+    const win = new BrowserWindow({
+      icon : "./image/256x256.ico",
+      autoHideMenuBar : true,
+    })
+
+    win.maximize()
+
+    win.loadURL('https://fanyi.qq.com/')
 
   })
 

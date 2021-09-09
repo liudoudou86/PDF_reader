@@ -1,5 +1,5 @@
 {
-  "name": "pdf-reader",
+  "name": "tiny",
   "version": "1.0.0",
   "description": "A minimal Electron application",
   "main": "main.js",
@@ -18,8 +18,8 @@
   "author": "GitHub",
   "license": "CC0-1.0",
   "build": {
-    "productName": "PDF阅读器",
-    "appId": "dd.PDF_reader",
+    "productName": "武器店",
+    "appId": "dd.tiny",
     "copyright": "",
     "directories": {
       "output": "build"
@@ -33,7 +33,7 @@
       "installerHeaderIcon": "./image/256x256.ico",
       "createDesktopShortcut": true,
       "createStartMenuShortcut": false,
-      "shortcutName": "PDF阅读器"
+      "shortcutName": "武器店"
     },
     "win": {
       "icon": "./image/256x256.ico",
