@@ -18,7 +18,7 @@
   "author": "GitHub",
   "license": "CC0-1.0",
   "build": {
-    "productName": "武器店",
+    "productName": "tiny",
     "appId": "dd.tiny",
     "copyright": "",
     "directories": {
@@ -33,7 +33,7 @@
       "installerHeaderIcon": "./image/256x256.ico",
       "createDesktopShortcut": true,
       "createStartMenuShortcut": false,
-      "shortcutName": "武器店"
+      "shortcutName": "tiny"
     },
     "win": {
       "icon": "./image/256x256.ico",
