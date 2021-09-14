@@ -7,21 +7,16 @@ let tray = null
 app.whenReady().then(() => {
 
   /* 创建项目窗口 */
-  const mainWindow = new BrowserWindow({
+  const translationWindow = new BrowserWindow({
     frame: false,
     icon : "./image/256x256.ico",
-    width : 700,
-    height : 65,
-    backgroundColor : '#000000'
   })
 
   /* 自动隐藏 */
-  mainWindow.hide()
+  translationWindow.hide()
 
-  mainWindow.loadFile("./src/index.html")
-
-  /* 定义窗口位置 */
-  mainWindow.setBounds({ x: 300, y: 100 })
+  /* 添加链接网址 */
+  translationWindow.loadURL('https://fanyi.qq.com/')
 
   /* 创建系统托盘 */
   tray = new Tray(path.join(__dirname, './image/e6.ico')) // 此写法为全局变量方便打包后使用
@@ -49,7 +44,7 @@ app.whenReady().then(() => {
   /* 创建快捷键 */
   globalShortcut.register('Alt+z', () => {
 
-    mainWindow.show()
+    searchWindow.show()
 
   })
 
@@ -57,16 +52,16 @@ app.whenReady().then(() => {
   globalShortcut.register('Control+Space', () => {
 
     /* 创建项目窗口 */
-    const Window = new BrowserWindow({
+    const pdfWindow = new BrowserWindow({
       icon : "./image/256x256.ico",
       autoHideMenuBar : true
     })
 
-    Window.show()
-    Window.maximize()
+    pdfWindow.show()
+    pdfWindow.maximize()
 
     /* 创建浏览文件夹 */
-    dialog.showOpenDialog(Window, {
+    dialog.showOpenDialog(pdfWindow, {
         properties: ['openFile'],
         filters: [
             { name : 'All Files', extensions : ['*'] }
@@ -76,30 +71,24 @@ app.whenReady().then(() => {
             console.log('User manually canceled')
         } else {
             const filepath = result.filePaths[0]
-            Window.loadURL(`file://${filepath}`) //该位置使用Tab键上面的符号
-            PDFWindow.addSupport(Window)
+            pdfWindow.loadURL(`file://${filepath}`) //该位置使用Tab键上面的符号
+            PDFWindow.addSupport(pdfWindow)
         }
     }).catch(err => {
         console.log(err)
     })
   })
 
-  globalShortcut.register('Esc', () => {
+  globalShortcut.register('Control+z', () => {
 
-    mainWindow.hide()
+    translationWindow.show()
+    translationWindow.maximize()
 
   })
 
-  globalShortcut.register('Control+z', () => {
+  globalShortcut.register('Esc', () => {
 
-    const win = new BrowserWindow({
-      icon : "./image/256x256.ico",
-      autoHideMenuBar : true
-    })
-
-    win.maximize()
-
-    win.loadURL('https://fanyi.qq.com/')
+    translationWindow.hide()
 
   })
 
