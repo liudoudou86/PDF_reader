@@ -3,6 +3,7 @@ const path = require('path')
 const PDFWindow = require('electron-pdf-window')
 
 let tray = null
+var exefile = require('child_process')
 
 app.whenReady().then(() => {
 
@@ -44,7 +45,8 @@ app.whenReady().then(() => {
   /* 创建快捷键 */
   globalShortcut.register('Alt+z', () => {
 
-    searchWindow.show()
+    /* 调用第三方可执行文件,需要时resources文件夹下面 */
+    exefile.execFile('./resources/search.exe')
 
   })
 
@@ -79,7 +81,7 @@ app.whenReady().then(() => {
     })
   })
 
-  globalShortcut.register('Control+z', () => {
+  globalShortcut.register('Control+x', () => {
 
     translationWindow.show()
     translationWindow.maximize()
