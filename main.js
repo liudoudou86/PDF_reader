@@ -42,13 +42,12 @@ app.whenReady().then(() => {
     tray.popUpContextMenu(contextMenu)
   })
 
-  /* 创建快捷键 */
+  /* 创建快捷键 
   globalShortcut.register('Alt+z', () => {
 
-    /* 调用第三方可执行文件,需要时resources文件夹下面 */
-    exefile.execFile('./resources/search.exe')
+    exefile.execFile('./script/search.exe') // 调用第三方可执行文件,需要时resources文件夹下面
 
-  })
+  }) */
 
   /* 创建快捷键 */
   globalShortcut.register('Control+Space', () => {
@@ -81,7 +80,7 @@ app.whenReady().then(() => {
     })
   })
 
-  globalShortcut.register('Control+x', () => {
+  globalShortcut.register('Alt+z', () => {
 
     translationWindow.show()
     translationWindow.maximize()
