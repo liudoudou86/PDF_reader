@@ -19,7 +19,7 @@
   "license": "CC0-1.0",
   "build": {
     "productName": "Tiny",
-    "appId": "dd.tiny",
+    "appId": "dd.Tiny",
     "copyright": "",
     "directories": {
       "output": "build"

@@ -20,7 +20,7 @@ app.whenReady().then(() => {
   translationWindow.loadURL('https://fanyi.qq.com/')
 
   /* 创建系统托盘 */
-  tray = new Tray(path.join(__dirname, './image/e6.ico')) // 此写法为全局变量方便打包后使用
+  tray = new Tray(path.join(__dirname, './image/256x256.ico')) // 此写法为全局变量方便打包后使用
   const contextMenu = Menu.buildFromTemplate([
     {
       label: '重启',
