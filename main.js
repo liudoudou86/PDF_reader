@@ -1,6 +1,7 @@
 const { app, BrowserWindow, dialog, Menu, Tray, globalShortcut } = require('electron')
 const path = require('path')
 const PDFWindow = require('electron-pdf-window')
+const exeName = path.basename(process.execPath)
 
 let tray = null
 
@@ -99,4 +100,14 @@ app.whenReady().then(() => {
 
 app.on('window-all-closed', function () {
   if (process.platform !== 'darwin') app.quit()
+})
+
+// 设置开机自启动
+app.setLoginItemSettings({
+  openAtLogin: true,
+  path: process.execPath,
+  args: [
+    '--processStart', `"${exeName}"`,
+    '--process-start-args', `"--hidden"`
+  ]
 })
