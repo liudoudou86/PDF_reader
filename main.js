@@ -105,9 +105,7 @@ app.on('window-all-closed', function () {
 // 设置开机自启动
 app.setLoginItemSettings({
   openAtLogin: true,
+  name: "Tiny",
   path: process.execPath,
-  args: [
-    '--processStart', `"${exeName}"`,
-    '--process-start-args', `"--hidden"`
-  ]
+  args: []
 })
