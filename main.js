@@ -1,7 +1,6 @@
-const { app, BrowserWindow, dialog, Menu, Tray, globalShortcut } = require('electron')
+const { app, BrowserWindow, dialog, Menu, Tray, globalShortcut, screen } = require('electron')
 const path = require('path')
 const PDFWindow = require('electron-pdf-window')
-const exeName = path.basename(process.execPath)
 
 let tray = null
 
@@ -19,9 +18,27 @@ app.whenReady().then(() => {
   /* 添加链接网址 */
   translationWindow.loadURL('https://fanyi.qq.com/')
 
+  
+
   /* 创建系统托盘 */
   tray = new Tray(path.join(__dirname, './image/256x256.ico')) // 此写法为全局变量方便打包后使用
   const contextMenu = Menu.buildFromTemplate([
+    {
+      label: '关于Tiny',
+        click() {
+          const about = new BrowserWindow({ // 跳转至新页面
+            width: 350,
+            height: 400,
+            autoHideMenuBar: true,
+            minimizable: false,
+            maximizable: false,
+            title: "关于Tiny",
+            icon : "./image/256x256.ico"
+          })
+
+          about.loadFile('./src/index.html')
+        }
+    },
     {
       label: '重启',
         click() {
@@ -52,8 +69,11 @@ app.whenReady().then(() => {
   /* 创建快捷键 */
   globalShortcut.register('Control+Space', () => {
 
+    const { width, height } = screen.getPrimaryDisplay().workAreaSize
     /* 创建项目窗口 */
     const pdfWindow = new BrowserWindow({
+      width,
+      height,
       icon : "./image/256x256.ico",
       autoHideMenuBar : true
     })
