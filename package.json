@@ -35,12 +35,6 @@
       "createStartMenuShortcut": false,
       "shortcutName": "Tiny"
     },
-    "extraResources": [
-      {
-        "from": "./script",
-        "to": "./"
-      }
-    ],
     "win": {
       "icon": "./image/256x256.ico",
       "target": [
