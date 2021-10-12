@@ -9,7 +9,7 @@ app.whenReady().then(() => {
   /* 创建项目窗口 */
   const translationWindow = new BrowserWindow({
     frame: false,
-    icon : "./image/Blue.png",
+    icon : "./image/256x256.ico",
   })
 
   /* 自动隐藏 */
@@ -21,7 +21,7 @@ app.whenReady().then(() => {
   
 
   /* 创建系统托盘 */
-  tray = new Tray(path.join(__dirname, './image/Blue.png')) // 此写法为全局变量方便打包后使用
+  tray = new Tray(path.join(__dirname, './image/256x256.ico')) // 此写法为全局变量方便打包后使用
   const contextMenu = Menu.buildFromTemplate([
     {
       label: '关于Tiny',
@@ -33,7 +33,7 @@ app.whenReady().then(() => {
             minimizable: false,
             maximizable: false,
             title: "关于Tiny",
-            icon : "./image/Blue.png"
+            icon : "./image/256x256.ico"
           })
 
           about.loadFile('./src/index.html')
@@ -74,7 +74,7 @@ app.whenReady().then(() => {
     const pdfWindow = new BrowserWindow({
       width,
       height,
-      icon : "./image/Blue.png",
+      icon : "./image/256x256.ico",
       autoHideMenuBar : true
     })
 
