@@ -24,6 +24,24 @@ app.whenReady().then(() => {
   tray = new Tray(path.join(__dirname, './image/256x256.ico')) // 此写法为全局变量方便打包后使用
   const contextMenu = Menu.buildFromTemplate([
     {
+      label: '便签',
+        click() {
+          const notes = new BrowserWindow({ // 跳转至新页面
+            width: 470,
+            height: 520,
+            autoHideMenuBar: true,
+            minimizable: false,
+            maximizable: false,
+            title: "便签",
+            icon : "./image/256x256.ico"
+          })
+
+          notes.loadFile('./src/notes.html')
+          
+          // notes.webContents.openDevTools() // 调试便签存储内容
+        }
+    },
+    {
       label: '关于Tiny',
         click() {
           const about = new BrowserWindow({ // 跳转至新页面
@@ -36,7 +54,7 @@ app.whenReady().then(() => {
             icon : "./image/256x256.ico"
           })
 
-          about.loadFile('./src/index.html')
+          about.loadFile('./src/about.html')
         }
     },
     {

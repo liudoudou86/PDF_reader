@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>番茄便签</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            outline: none;
+            list-style: none;
+            box-sizing: border-box;
+        }
+        body{
+            width: 450px;
+            margin: 80px auto 0 auto;
+            margin-top: 0px;
+            padding: 10px;
+            min-height: 450px;
+            background-color: #336699;
+        }
+        #container h1{
+            color: #FFFFFF;
+            width: 150px;
+            margin: 20px auto;
+        }
+        #input {
+            font-size: 0;   
+            position: relative;
+        }
+        #input input{
+            width: 84%;
+            height: 30px;
+            margin-left: 9%;
+            border-radius: 15px;
+            padding: 5px 10px;
+        }
+        #input input::-webkit-input-placeholder{
+            color: #FFFFFF;
+            text-align: center;
+        }
+        #input input::-moz-placeholder{
+            color: #FFFFFF;
+            text-align: center;
+        }
+        #input button{
+            width: 50px;
+            height: 30px;
+            border-radius: 0 15px 15px 0;
+            background-color: #999933;
+            position: absolute;
+            right: 30px;
+            cursor: pointer;
+            opacity: 0;
+            transition: all 0.5s 0.1s;
+            visibility: hidden;
+            color: #FFFFFF;
+        }
+        #input input:focus + button, #input button:hover{
+            opacity: 1;
+            visibility: visible;
+        }
+        #input button:hover{
+            background-color: #999933;
+        }
+        ul{
+            margin: 30px 0;
+        }
+        ul li{
+            width: 360px;
+            margin:  10px 0 0 9%;
+            color: #CCCCCC;
+            background-color: #333333;
+            font-weight: 600;
+            padding: 5px 10px;
+            border-radius: 10px;
+            white-space: pre-line;
+			word-break: break-all;
+			word-wrap: break-word;
+        }
+        ul li:hover{
+            background-color: #000000;
+            transition: all 0.4s ;
+        }
+    
+        .removebtnContainer{
+            margin: 4px 5px 0 0;
+            float: right;
+            border-radius: 50%;
+            width: 13px;
+            height: 13px;
+            border: solid #999933;
+            position: relative;
+            top: 50%;
+            transition: all 0.2s ;
+            cursor: pointer;
+        }
+        .removebtnContainer:hover{
+            background-color: #999933;
+        }
+        </style>
+</head>
+<body>
+    <div id="container">
+        <h1>TodoList</h1>
+        <div id="input">
+            <input type="text" id="content" placeholder="请输入待办事项" onfocus="this.placeholder = ''" onblur="this.placeholder = '请输入待办事项'">
+            <button>添加</button>
+        </div>
+        <ul id="ul"></ul>
+    </div>
+
+    <script>
+        let todoList = document.getElementsByTagName('ul')[0]; 
+        let inputElement = document.getElementById('content');
+        let buttonElement = document.getElementsByTagName('button')[0];
+        let todos = JSON.parse(localStorage.getItem('todos')) || [];  // todos数组保存待办项 
+        
+        function addNew(content){
+            let item = document.createElement('li');
+            item.innerText = content; 
+            addNewButton(item); 
+            todoList.appendChild(item);
+            todos.push(content);
+            save();
+        }
+        function addNewButton(item){
+            let container = document.createElement('div');
+            container.className = 'removebtnContainer';
+            item.appendChild(container);
+        }
+        function save(){
+            localStorage.setItem('todos',JSON.stringify(todos)); // 将数组转为字符串并储存在本地
+        }
+        function reLoad(){
+            todos.forEach((content) => {
+                let item = document.createElement('li');
+                item.innerText = content;
+                addNewButton(item);
+                todoList.appendChild(item);
+            });
+        }
+        function reMove(item){
+            item.parentNode.remove(); 
+            todos.forEach((content, index) => {         
+                if(item.parentNode.innerText.trim() == content){
+                    todos.splice(index, 1);  // splice方法 删除index开始的 1项
+                }
+            })
+            save();
+        }
+
+        /* ↑ 函数声明
+        -------------------------------------------------------------------------
+        事件、执行 ↓                                                              */
+        
+        reLoad(); //从本地载入
+
+        /*两种方式添加待办项*/
+        //鼠标点击添加
+        buttonElement.addEventListener('click', () =>{
+            if(inputElement.value){
+                addNew(inputElement.value.trim());
+                inputElement.value = '';
+            }
+        },false)
+        //键盘回车添加
+        inputElement.addEventListener('keyup', (event) =>{
+            console.log(event); 
+            if(event.keyCode == 13 && inputElement.value){  //回车 keyCode === 13
+                addNew(inputElement.value.trim());
+                inputElement.value = '';
+            }
+        })
+
+        //点击删除
+        todoList.addEventListener('click',(event)=>{
+            if(event.target.className == 'removebtnContainer'){
+                reMove(event.target);
+            }
+        },false)
+    </script>
+</body>
+</html>
