@@ -9,7 +9,7 @@ app.whenReady().then(() => {
   /* 创建项目窗口 */
   const translationWindow = new BrowserWindow({
     frame: false,
-    icon : "./image/256x256.ico",
+    icon : "./image/256.ico",
   })
 
   /* 自动隐藏 */
@@ -21,7 +21,7 @@ app.whenReady().then(() => {
   
 
   /* 创建系统托盘 */
-  tray = new Tray(path.join(__dirname, './image/256x256.ico')) // 此写法为全局变量方便打包后使用
+  tray = new Tray(path.join(__dirname, './image/256.ico')) // 此写法为全局变量方便打包后使用
   const contextMenu = Menu.buildFromTemplate([
     {
       label: '便签',
@@ -33,7 +33,7 @@ app.whenReady().then(() => {
             minimizable: false,
             maximizable: false,
             title: "便签",
-            icon : "./image/256x256.ico"
+            icon : "./image/256.ico"
           })
 
           notes.loadFile('./src/notes.html')
@@ -51,7 +51,7 @@ app.whenReady().then(() => {
             minimizable: false,
             maximizable: false,
             title: "关于Tiny",
-            icon : "./image/256x256.ico"
+            icon : "./image/256.ico"
           })
 
           about.loadFile('./src/about.html')
@@ -92,7 +92,7 @@ app.whenReady().then(() => {
     const pdfWindow = new BrowserWindow({
       width,
       height,
-      icon : "./image/256x256.ico",
+      icon : "./image/256.ico",
       autoHideMenuBar : true
     })
 
@@ -118,14 +118,14 @@ app.whenReady().then(() => {
     })
   })
 
-  globalShortcut.register('Shift+x', () => {
+  globalShortcut.register('Shift+z', () => {
 
     translationWindow.show()
     translationWindow.maximize()
 
   })
 
-  globalShortcut.register('Esc', () => {
+  globalShortcut.register('F1', () => {
 
     translationWindow.hide()
 

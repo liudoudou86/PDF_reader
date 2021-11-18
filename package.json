@@ -28,15 +28,15 @@
       "oneClick": false,
       "allowElevation": true,
       "allowToChangeInstallationDirectory": true,
-      "installerIcon": "./image/256x256.ico",
-      "uninstallerIcon": "./image/256x256.ico",
-      "installerHeaderIcon": "./image/256x256.ico",
+      "installerIcon": "./image/256.ico",
+      "uninstallerIcon": "./image/256.ico",
+      "installerHeaderIcon": "./image/256.ico",
       "createDesktopShortcut": true,
       "createStartMenuShortcut": false,
       "shortcutName": "Tiny"
     },
     "win": {
-      "icon": "./image/256x256.ico",
+      "icon": "./image/256.ico",
       "target": [
         {
           "target": "nsis",
