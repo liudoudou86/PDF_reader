@@ -78,13 +78,6 @@ app.whenReady().then(() => {
   })
 
   /* 创建快捷键 */
-  globalShortcut.register('Shift+c', () => {
-
-    console.log("empty")
-
-  })
-
-  /* 创建快捷键 */
   globalShortcut.register('Control+Space', () => {
 
     const { width, height } = screen.getPrimaryDisplay().workAreaSize
