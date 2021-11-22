@@ -1,4 +1,4 @@
-const { app, BrowserWindow, dialog, Menu, Tray, globalShortcut, screen } = require('electron')
+const { app, BrowserWindow, dialog, Menu, Tray, globalShortcut, screen  } = require('electron')
 const path = require('path')
 const PDFWindow = require('electron-pdf-window')
 
